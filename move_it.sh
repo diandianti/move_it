@@ -67,13 +67,6 @@ mi_info() {
     fi
 }
 
-mi_dbg() {
-    if [ ${log_level} -ge ${log_dbg} ]; then
-        echo -ne "${COLOR_YELLOW}"
-        mi_log $@
-        echo -e "${CLR_COLOR}"
-    fi
-}
 ##############################################################################
 
 
@@ -189,7 +182,7 @@ mi_process_file() {
     ext_name=${1##*.}
     ft=$(get_file_type ${ext_name})
 
-    mi_dbg "${1} -> ${2}/${ft}"
+    mi_info "${1} -> ${2}/${ft}"
 
     ls ${2}/${ft} > /dev/null 2>&1 || mkdir -p ${2}/${ft}
     mv ${1} ${2}/${ft}
@@ -217,12 +210,12 @@ mi_process_dir() {
         if [ -d ${in_file} ];then
     
             if [ ${process_dir} -eq 0 ];then
-                mi_dbg "Do not process dir!"
+                mi_info "Do not process dir!"
                 continue 
             fi
 
             if [ ${recursion} -eq 0 ];then
-                mi_dbg "${in_file} -> ${dir_out_path}"
+                mi_info "${in_file} -> ${dir_out_path}"
                 ls ${dir_out_path} > /dev/null 2>&1 || mkdir -p ${dir_out_path}
                 mv ${in_file} ${dir_out_path}
             else
@@ -255,7 +248,7 @@ out_path=${config_def_path}
 all_todo=()
 parse_arg $@
 
-mi_dbg "Out path is ${out_path}"
+mi_info "Out path is ${out_path}"
 
 for i in ${all_todo}
 do
