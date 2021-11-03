@@ -180,7 +180,7 @@ mi_process_file() {
 
     fn=$(basename ${1})
     ext_name=${1##*.}
-    ft=$(get_file_type ${ext_name})
+    ft=$(get_file_type ${ext_name,,})
 
     mi_info "${1} -> ${2}/${ft}"
 
