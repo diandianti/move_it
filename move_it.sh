@@ -130,7 +130,6 @@ get_file_type() {
 
     for ff in ${mi_all_ff[@]}
     do
-        ffs=${!ff}
         eval ffs=\( \${${ff}[@]} \)
         for i in ${ffs[@]}
             do
