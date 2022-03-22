@@ -1,3 +1,9 @@
+# About This Tool
+you can visit this page  https://medium.com/p/eb55222464b9 to get more information
+
+# 关于Move It
+可以访问我的博客 https://blog.diandianti.ml/2021/11/03/move_it/ 获取更多信息
+
 # 什么是 move_it
 
 move_it 可以按照文件的扩展名来整理某些文件夹内部的文件, 例如：
